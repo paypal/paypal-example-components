@@ -36,7 +36,7 @@ attach(({ clientOptions, clientConfig, serverConfig }) => {
     //
     // var client = paypal.client({
     //     env: 'sandbox',
-    //     clientToken: {
+    //     auth: {
     //         sandbox:    'abc',
     //         production: 'xyz'
     //     }
