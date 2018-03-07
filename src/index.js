@@ -3,7 +3,7 @@
 import { attach } from 'paypal-braintree-web-client/src';
 
 // Attach to public api
-attach(({ clientOptions, clientConfig, serverConfig }) => {
+attach(({ clientOptions, clientConfig, serverConfig, queryOptions }) => {
 
     // Read from merchant-passed options
     console.log('Client tokens:', clientOptions.clientToken);
@@ -16,6 +16,9 @@ attach(({ clientOptions, clientConfig, serverConfig }) => {
 
     // Read a server config key
     console.log('Logger url', serverConfig.urls.logger);
+
+    // Read a query option key
+    console.log('Merchant id', queryOptions.paypalMerchantID);
 
     // Expose public apis
     return {
