@@ -1,6 +1,6 @@
 /* @flow */
 
-export const DATE_FEATURES = {
+module.exports.DATE_FEATURES = {
 
     // Deprecate feature X from 2017/06/23 onwards
     2017_06_23: {
@@ -13,7 +13,7 @@ export const DATE_FEATURES = {
     }
 };
 
-export const COUNTRY_FEATURES = {
+module.exports.COUNTRY_FEATURES = {
 
     // Enable feature Z for FR
     FR: {
@@ -21,7 +21,7 @@ export const COUNTRY_FEATURES = {
     }
 };
 
-export const MERCHANT_FEATURES = {
+module.exports.MERCHANT_FEATURES = {
 
     // Enable feature B for merchant ABC
     ABC: {
@@ -29,7 +29,7 @@ export const MERCHANT_FEATURES = {
     }
 };
 
-export const PARTNER_FEATURES = {
+module.exports.PARTNER_FEATURES = {
 
     // Enable feature A for partner XYZ
     XYZ: {
