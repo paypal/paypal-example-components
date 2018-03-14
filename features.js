@@ -3,12 +3,12 @@
 module.exports.DATE_FEATURES = {
 
     // Deprecate feature X from 2017/06/23 onwards
-    2017_06_23: {
+    '2017-06-23': {
         FEATURE_X: false
     },
 
     // Enable feature Y from 2018/02/09 onwards
-    2018_02_09: {
+    '2018-02-09': {
         FEATURE_Y: true
     }
 };
