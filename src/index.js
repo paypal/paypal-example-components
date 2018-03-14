@@ -25,6 +25,11 @@ attach(({ clientOptions, clientConfig, serverConfig, queryOptions }) => {
 
         LebowskiPay: {
             render(options, container) {
+                
+                if (FEATURE_Y) {
+                    console.log('Feature Y is enabled!');
+                }
+
                 document.querySelector(container).innerHTML = `<button>Pay with LebowskiPay!</button>`;
             }
         },
