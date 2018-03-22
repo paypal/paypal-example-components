@@ -9,8 +9,8 @@ module.exports = {
     // Set up a namespace for any module-specific build-time flags
     staticNamespace: 'LEBOWSKIPAY',
 
-    // Set up a graphql request for config needed by this module
-    config: `
+    // Set up a graphql config query
+    configQuery: `
         configuration {
             lebowskiPay {
                 checkoutUrl
