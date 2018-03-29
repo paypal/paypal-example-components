@@ -4,6 +4,7 @@
   "description": "Example component module for a component for unified PayPal/Braintree web sdk",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src/ test/ *.js",
     "test": "npm run karma",
     "karma": "cross-env NODE_ENV=test babel-node --plugins=transform-es2015-modules-commonjs ./node_modules/.bin/karma start ./node_modules/grumbler-scripts/config/karma.conf"
   },

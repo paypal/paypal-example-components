@@ -1,5 +1,6 @@
+/* @flow */
 
-module.exports = {
+export default {
 
     // Set up `?modules=lebowski-pay` to include `./src/index`
     modules: {
@@ -51,7 +52,7 @@ module.exports = {
             // Enable feature B for merchant ABC
             ABC: {
                 FEATURE_B: true
-            } 
+            }
         }
     }
 };

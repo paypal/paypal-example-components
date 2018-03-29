@@ -1,3 +1,5 @@
+/* @flow */
+/* eslint no-console: 0 */
 
 // Pull in the common client
 import { attach } from 'paypal-braintree-web-client/src';
