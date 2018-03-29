@@ -205,3 +205,7 @@ export default {
   ```
 
   Please bear in mind that this opens the door to any combination or permutation of these modules to be requested by the merchant -- hence the need for loose coupling. `donnie-pay` should not have a hard dependency on `lebowski-pay` being present.
+
+- **Where is all of the karma, webpack, eslint, etc. config coming from?**
+
+  This module uses `grumbler-scripts` as a common source of configuration and defaults. Any of these can be overriden, either partially, or entirely, depending on the individual needs of the module. You'll notice `.eslintrc.js`, `karma.conf.js`, etc. are lightweight wrappers which only define module-specific overrides.
