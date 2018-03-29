@@ -8,7 +8,7 @@ import { attach } from 'paypal-braintree-web-client/src';
 attach(({ clientOptions, clientConfig, serverConfig, queryOptions }) => {
 
     // Read from merchant-passed options
-    console.log('Client tokens:', clientOptions.clientToken);
+    console.log('Client tokens:', clientOptions.auth);
 
     // Set a shared client config key
     clientConfig.set('credit_fields_handled', true);
@@ -20,7 +20,7 @@ attach(({ clientOptions, clientConfig, serverConfig, queryOptions }) => {
     console.log('Logger url', serverConfig.urls.logger);
 
     // Read a query option key
-    console.log('Merchant id', queryOptions.paypalMerchantID);
+    console.log('Merchant id', queryOptions.merchantID);
 
     // Expose public apis
     return {
