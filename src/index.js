@@ -27,12 +27,17 @@ attach(({ clientOptions, clientConfig, serverConfig, queryOptions }) => {
 
         LebowskiPay: {
             render(options, container) {
+
+                if (!options.buttonText) {
+                    throw new Error(`Expected options.buttonText`);
+                }
                 
                 if (FEATURE_Y) {
                     console.log('Feature Y is enabled!');
                 }
 
-                document.querySelector(container).innerHTML = `<button>Pay with LebowskiPay!</button>`;
+                document.querySelector(container).innerHTML =
+                    `<button>${ options.buttonText }</button>`;
             }
         },
 
