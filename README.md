@@ -1,4 +1,4 @@
-PayPal/Braitnree Example Component
+PayPal/Braintree Example Component
 ----------------------------------
 
 Example standalone component to be included in unified PayPal/Braintree client SDK
