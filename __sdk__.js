@@ -1,6 +1,7 @@
 /* @flow */
+/* eslint import/no-commonjs: 0 */
 
-export default {
+module.exports = {
 
     // Set up `?modules=lebowski-pay` to include `./src/index`
     modules: {
