@@ -6,7 +6,11 @@ describe('Error cases', () => {
 
     it('Should error out if buttonText is not passed to LebowskiPay', () => {
 
-        let client = window.paypal.client();
+        let client = window.paypal.client({
+            auth: {
+                production: 'LET_ME_IN'
+            }
+        });
 
         let error;
 

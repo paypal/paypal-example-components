@@ -8,13 +8,21 @@ export default (karma : Object) =>
         basePath: __dirname,
         webpack:  getWebpackConfig({
             vars: {
+                __PAYPAL_BRAINTREE_QUERY_OPTIONS__: {
+                    merchantID: 'XYZ'
+                },
+
                 __PAYPAL_BRAINTREE_SERVER_CONFIG__: {
                     urls: {
                         logger: 'https://paypal.com/logger'
                     }
                 },
-                __PAYPAL_BRAINTREE_QUERY_OPTIONS__: {},
-                FEATURE_Y:                          true
+                
+                FEATURE_A: true,
+                FEATURE_B: true,
+                FEATURE_X: true,
+                FEATURE_Y: true,
+                FEATURE_Z: true
             }
         })
     }));

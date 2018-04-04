@@ -5,46 +5,55 @@
 import { attach } from 'paypal-braintree-web-client/src';
 
 // Attach to public api
-attach(({ clientOptions, clientConfig, serverConfig, queryOptions }) => {
+attach(({ clientOptions, serverConfig, queryOptions }) => {
 
-    // Read from merchant-passed options
-    console.log('Client tokens:', clientOptions.auth);
+    let featureA = FEATURE_A && (() => 'Feature A');
+    let featureB = FEATURE_B && (() => 'Feature B');
+    let featureX = FEATURE_X && (() => 'Feature X');
+    let featureY = FEATURE_Y && (() => 'Feature Y');
+    let featureZ = FEATURE_Z && (() => 'Feature Z');
 
-    // Set a shared client config key
-    clientConfig.set('credit_fields_handled', true);
-
-    // Read a shared client config key
-    console.log('Config foo:', clientConfig.get('credit_fields_handled'));
-
-    // Read a server config key
-    console.log('Logger url', serverConfig.urls.logger);
-
-    // Read a query option key
-    console.log('Merchant id', queryOptions.merchantID);
-
+    let { env = 'production', auth } = clientOptions;
+    
     // Expose public apis
     return {
 
         LebowskiPay: {
             render(options, container) {
 
+                if (!env) {
+                    throw new Error(`Expected env`);
+                }
+
+                if (!auth || auth[env] !== 'LET_ME_IN') {
+                    throw new Error(`Invalid auth`);
+                }
+
                 if (!options.buttonText) {
                     throw new Error(`Expected options.buttonText`);
                 }
 
-                if (FEATURE_Y) {
-                    console.log('Feature Y is enabled!');
-                }
-
                 document.querySelector(container).innerHTML =
-                    `<button>${ options.buttonText }</button>`;
+                    `<button data-merchant-id=${ queryOptions.merchantID }>${ options.buttonText }</button>`;
             }
+        },
+
+        log() {
+            fetch(serverConfig.urls.logger, {
+                body: 'lebowski-log'
+            });
         },
 
         LEBOWSKI_CONSTANTS: {
             FOO: 'FOO',
             BAR: 'BAR'
-        }
+        },
+
+        featureA,
+        featureB,
+        featureX,
+        featureY,
+        featureZ
     };
 
     // Now end-user can do:
