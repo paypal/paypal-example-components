@@ -16,7 +16,8 @@
     "karma": "cross-env NODE_ENV=test babel-node --plugins=transform-es2015-modules-commonjs ./node_modules/.bin/karma start"
   },
   "files": [
-    "src"
+    "src",
+    "__sdk__.js"
   ],
   "repository": {
     "type": "git",
