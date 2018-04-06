@@ -15,6 +15,9 @@
     "test": "npm run lint && npm run flow-typed && npm run flow && npm run karma",
     "karma": "cross-env NODE_ENV=test babel-node --plugins=transform-es2015-modules-commonjs ./node_modules/.bin/karma start"
   },
+  "files": [
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/paypal/paypal-braintree-example-component.git"
