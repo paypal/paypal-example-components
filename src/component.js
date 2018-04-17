@@ -5,7 +5,7 @@
 import { attach } from 'paypal-braintree-web-client/src';
 
 // Attach to public api
-attach(({ clientOptions, serverConfig, queryOptions }) => {
+attach('lebowski-pay', ({ clientOptions, serverConfig, queryOptions }) => {
 
     let featureA = FEATURE_A && (() => 'Feature A');
     let featureB = FEATURE_B && (() => 'Feature B');
@@ -31,6 +31,10 @@ attach(({ clientOptions, serverConfig, queryOptions }) => {
 
                 if (!options.buttonText) {
                     throw new Error(`Expected options.buttonText`);
+                }
+
+                if (!serverConfig.clientConfiguration.assetsUrl) {
+                    throw new Error(`Expected assetsUrl to be present`);
                 }
 
                 document.querySelector(container).innerHTML =

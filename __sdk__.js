@@ -13,10 +13,8 @@ module.exports = {
 
     // Set up a graphql config query
     configQuery: `
-        configuration {
-            lebowskiPay {
-                checkoutUrl
-            }
+        clientConfiguration {
+            assetsUrl
         }
     `,
 

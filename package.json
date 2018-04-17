@@ -35,6 +35,6 @@
     "flow-bin": "0.56.0"
   },
   "dependencies": {
-    "paypal-braintree-web-client": "^1.0.5"
+    "paypal-braintree-web-client": "^2.0.0"
   }
 }

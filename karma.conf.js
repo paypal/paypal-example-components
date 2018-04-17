@@ -13,8 +13,10 @@ export default (karma : Object) =>
                 },
 
                 __PAYPAL_BRAINTREE_SERVER_CONFIG__: {
-                    urls: {
-                        logger: 'https://paypal.com/logger'
+                    'lebowski-pay': {
+                        clientConfiguration: {
+                            assetsUrl: 'https://paypal.com/assets/'
+                        }
                     }
                 },
                 
