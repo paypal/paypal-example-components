@@ -8,17 +8,17 @@ export default (karma : Object) =>
         basePath: __dirname,
         webpack:  getWebpackConfig({
             vars: {
-                __PAYPAL_BRAINTREE_QUERY_OPTIONS__: {
+                __PAYPAL_BRAINTREE_QUERY_OPTIONS__: JSON.stringify({
                     merchantID: 'XYZ'
-                },
+                }),
 
-                __PAYPAL_BRAINTREE_SERVER_CONFIG__: {
+                __PAYPAL_BRAINTREE_SERVER_CONFIG__: JSON.stringify({
                     'lebowski-pay': {
                         clientConfiguration: {
                             assetsUrl: 'https://paypal.com/assets/'
                         }
                     }
-                },
+                }),
                 
                 FEATURE_A: true,
                 FEATURE_B: true,
