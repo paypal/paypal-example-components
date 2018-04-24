@@ -8,7 +8,7 @@ describe('Error cases', () => {
 
         let client = window.paypal.client({
             auth: {
-                production: 'LET_ME_IN'
+                test: 'LET_ME_IN'
             }
         });
 

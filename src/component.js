@@ -5,13 +5,20 @@
 import { attach } from 'paypal-braintree-web-client/src';
 
 // Attach to public api
-attach('lebowski-pay', ({ clientOptions, serverConfig, queryOptions }) => {
+attach('lebowski-pay', ({ clientOptions }) => {
 
-    let featureA = FEATURE_A && (() => 'Feature A');
-    let featureB = FEATURE_B && (() => 'Feature B');
-    let featureX = FEATURE_X && (() => 'Feature X');
-    let featureY = FEATURE_Y && (() => 'Feature Y');
-    let featureZ = FEATURE_Z && (() => 'Feature Z');
+    if (typeof __lebowski_pay__ === 'undefined' || typeof __sdk__ === 'undefined') {
+        throw new TypeError(`Expected to be run in server-mode only`);
+    }
+
+    let featureA = __lebowski_pay__.featureFlags.FEATURE_A && (() => 'Feature A');
+    let featureB = __lebowski_pay__.featureFlags.FEATURE_B && (() => 'Feature B');
+    let featureX = __lebowski_pay__.featureFlags.FEATURE_X && (() => 'Feature X');
+    let featureY = __lebowski_pay__.featureFlags.FEATURE_Y && (() => 'Feature Y');
+    let featureZ = __lebowski_pay__.featureFlags.FEATURE_Z && (() => 'Feature Z');
+
+    let assetsUrl = __lebowski_pay__.serverConfig && __lebowski_pay__.serverConfig.clientConfiguration.assetsUrl;
+    let merchantID = __sdk__.queryOptions.merchantID;
 
     let { env = 'production', auth } = clientOptions;
     
@@ -33,19 +40,13 @@ attach('lebowski-pay', ({ clientOptions, serverConfig, queryOptions }) => {
                     throw new Error(`Expected options.buttonText`);
                 }
 
-                if (!serverConfig.clientConfiguration.assetsUrl) {
+                if (!assetsUrl) {
                     throw new Error(`Expected assetsUrl to be present`);
                 }
 
                 document.querySelector(container).innerHTML =
-                    `<button data-merchant-id=${ queryOptions.merchantID }>${ options.buttonText }</button>`;
+                    `<button data-merchant-id=${ merchantID }>${ options.buttonText }</button>`;
             }
-        },
-
-        log() {
-            fetch(serverConfig.urls.logger, {
-                body: 'lebowski-log'
-            });
         },
 
         LEBOWSKI_CONSTANTS: {
