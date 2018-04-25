@@ -7,7 +7,7 @@ module.exports = {
         entry: './src/index',
 
         // Set up a namespace for any module-specific build-time flags
-        staticNamespace: 'LEBOWSKIPAY',
+        staticNamespace: '__lebowski_pay__',
 
         // Set up a graphql config query
         configQuery: `
