@@ -17,7 +17,7 @@ attach('lebowski-pay', ({ clientOptions }) => {
     let featureY = __lebowski_pay__.featureFlags.FEATURE_Y && (() => 'Feature Y');
     let featureZ = __lebowski_pay__.featureFlags.FEATURE_Z && (() => 'Feature Z');
 
-    let assetsUrl = __lebowski_pay__.serverConfig && __lebowski_pay__.serverConfig.clientConfiguration.assetsUrl;
+    let assetsUrl = __lebowski_pay__.serverConfig.clientConfiguration.assetsUrl;
     let merchantID = __sdk__.queryOptions.merchantID;
 
     let { env = 'production', auth } = clientOptions;
