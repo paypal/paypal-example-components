@@ -36,20 +36,6 @@ module.exports = {
                 FR: {
                     FEATURE_Z: true
                 }
-            },
-
-            partner: {
-                // Enable feature A for partner XYZ
-                XYZ: {
-                    FEATURE_A: true
-                }
-            },
-
-            merchant: {
-                // Enable feature B for merchant ABC
-                ABC: {
-                    FEATURE_B: true
-                }
             }
         }
     }

@@ -11,8 +11,6 @@ attach('lebowski-pay', ({ clientOptions }) => {
         throw new TypeError(`Expected to be run in server-mode only`);
     }
 
-    let featureA = __lebowski_pay__.featureFlags.FEATURE_A && (() => 'Feature A');
-    let featureB = __lebowski_pay__.featureFlags.FEATURE_B && (() => 'Feature B');
     let featureX = __lebowski_pay__.featureFlags.FEATURE_X && (() => 'Feature X');
     let featureY = __lebowski_pay__.featureFlags.FEATURE_Y && (() => 'Feature Y');
     let featureZ = __lebowski_pay__.featureFlags.FEATURE_Z && (() => 'Feature Z');
@@ -53,9 +51,7 @@ attach('lebowski-pay', ({ clientOptions }) => {
             FOO: 'FOO',
             BAR: 'BAR'
         },
-
-        featureA,
-        featureB,
+        
         featureX,
         featureY,
         featureZ
