@@ -11,12 +11,14 @@ attach('lebowski-pay', ({ clientOptions }) => {
         throw new TypeError(`Expected to be run in server-mode only`);
     }
 
+    console.warn('Server config:', __lebowski_pay__.serverConfig);
+
     let featureX = __lebowski_pay__.featureFlags.FEATURE_X && (() => 'Feature X');
     let featureY = __lebowski_pay__.featureFlags.FEATURE_Y && (() => 'Feature Y');
     let featureZ = __lebowski_pay__.featureFlags.FEATURE_Z && (() => 'Feature Z');
 
-    let assetsUrl = __lebowski_pay__.serverConfig.clientConfiguration.assetsUrl;
-    let merchantID = __sdk__.queryOptions.merchantID;
+    let assetsUrl = __lebowski_pay__.serverConfig.assetsUrl;
+    let clientID = __sdk__.queryOptions.clientID;
 
     let { env = 'production', auth } = clientOptions;
     
@@ -43,7 +45,7 @@ attach('lebowski-pay', ({ clientOptions }) => {
                 }
 
                 document.querySelector(container).innerHTML =
-                    `<button data-merchant-id=${ merchantID }>${ options.buttonText }</button>`;
+                    `<button data-client-id="${ clientID }">${ options.buttonText }</button>`;
             }
         },
 
@@ -51,7 +53,7 @@ attach('lebowski-pay', ({ clientOptions }) => {
             FOO: 'FOO',
             BAR: 'BAR'
         },
-        
+
         featureX,
         featureY,
         featureZ

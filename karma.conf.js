@@ -20,9 +20,7 @@ let sdkGlobal: SDKGlobalType = {
 
 let lebowskiPayGlobal: LebowskiPayGlobalType = {
     serverConfig: {
-        clientConfiguration: {
-            assetsUrl: 'https://paypal.com/assets/'
-        }
+        assetsUrl: 'https://paypal.com/assets/'
     },
     featureFlags: {
         FEATURE_A: true,

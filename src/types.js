@@ -1,9 +1,7 @@
 /* @flow */
 
 export type LebowskiPayServerConfigType = {
-    clientConfiguration : {
-        assetsUrl : string
-    }
+    assetsUrl : string
 };
 
 export type LebowskiPayGlobalType = {
