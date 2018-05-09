@@ -11,7 +11,7 @@ attach('lebowski-pay', ({ clientOptions }) => {
         throw new TypeError(`Expected to be run in server-mode only`);
     }
 
-    console.warn('Server config:', __lebowski_pay__.serverConfig);
+    console.log('Server config:', __lebowski_pay__.serverConfig);
 
     let featureX = __lebowski_pay__.featureFlags.FEATURE_X && (() => 'Feature X');
     let featureY = __lebowski_pay__.featureFlags.FEATURE_Y && (() => 'Feature Y');
