@@ -13,7 +13,7 @@ module.exports = {
         configQuery: `
             clientConfiguration {
                 assetsUrl
-                paymentMethodConfigurations(merchantId: $clientID) {
+                paypalMerchantConfiguration(merchantId: $clientID) {
                     name
                     isPayPalBranded
                 }
