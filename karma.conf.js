@@ -6,7 +6,7 @@ import type { SDKGlobalType } from 'paypal-braintree-web-client/src/types';
 
 import type { LebowskiPayGlobalType } from './src/types';
 
-let sdkGlobal: SDKGlobalType = {
+let sdkGlobal : SDKGlobalType = {
     queryOptions: {
         env:    'test',
         locale: {
@@ -18,7 +18,7 @@ let sdkGlobal: SDKGlobalType = {
     }
 };
 
-let lebowskiPayGlobal: LebowskiPayGlobalType = {
+let lebowskiPayGlobal : LebowskiPayGlobalType = {
     serverConfig: {
         assetsUrl: 'https://paypal.com/assets/'
     },
