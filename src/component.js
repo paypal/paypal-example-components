@@ -7,7 +7,7 @@ import { attach } from 'paypal-braintree-web-client/src';
 // Attach to public api
 attach('lebowski-pay', ({ clientOptions }) => {
 
-    if (typeof __lebowski_pay__ === 'undefined' || typeof __sdk__ === 'undefined') {
+    if (typeof __lebowski_pay__ === 'undefined') {
         throw new TypeError(`Expected to be run in server-mode only`);
     }
 
