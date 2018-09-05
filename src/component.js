@@ -17,9 +17,6 @@ attach('lebowski-pay', ({ clientOptions }) => {
     let featureY = __lebowski_pay__.featureFlags.FEATURE_Y && (() => 'Feature Y');
     let featureZ = __lebowski_pay__.featureFlags.FEATURE_Z && (() => 'Feature Z');
 
-    let assetsUrl = __lebowski_pay__.serverConfig.assetsUrl;
-    let clientID = __sdk__.queryOptions.clientID;
-
     let { env = 'production', auth } = clientOptions;
     
     // Expose public apis
@@ -40,12 +37,8 @@ attach('lebowski-pay', ({ clientOptions }) => {
                     throw new Error(`Expected options.buttonText`);
                 }
 
-                if (!assetsUrl) {
-                    throw new Error(`Expected assetsUrl to be present`);
-                }
-
                 document.querySelector(container).innerHTML =
-                    `<button data-client-id="${ clientID }">${ options.buttonText }</button>`;
+                    `<button>${ options.buttonText }</button>`;
             }
         },
 
