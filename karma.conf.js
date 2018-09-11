@@ -2,21 +2,8 @@
 
 import { getKarmaConfig } from 'grumbler-scripts/config/karma.conf';
 import { getWebpackConfig } from 'grumbler-scripts/config/webpack.config';
-import type { SDKGlobalType } from 'paypal-braintree-web-client/src/types';
 
 import type { LebowskiPayGlobalType } from './src/types';
-
-let sdkGlobal : SDKGlobalType = {
-    queryOptions: {
-        env:    'test',
-        locale: {
-            country: 'US',
-            lang:    'en'
-        },
-        merchantID: 'XXXXXXX',
-        components: [ 'hosted-fields' ]
-    }
-};
 
 let lebowskiPayGlobal : LebowskiPayGlobalType = {
     serverConfig: {
@@ -36,7 +23,6 @@ export default (karma : Object) =>
         basePath: __dirname,
         webpack:  getWebpackConfig({
             vars: {
-                __sdk__:          sdkGlobal,
                 __lebowski_pay__: lebowskiPayGlobal
             }
         })

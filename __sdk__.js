@@ -4,7 +4,7 @@
 module.exports = {
 
     'lebowski-pay': {
-        entry: './src/index',
+        entry: './src/component',
 
         // Set up a namespace for any module-specific build-time flags
         staticNamespace: '__lebowski_pay__',

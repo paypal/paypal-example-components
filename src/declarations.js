@@ -2,4 +2,4 @@
 
 import type { LebowskiPayGlobalType } from './types';
 
-declare var __lebowski_pay__: LebowskiPayGlobalType | void;
+declare var __lebowski_pay__: LebowskiPayGlobalType;

@@ -15,13 +15,7 @@ describe('Happy cases', () => {
         container.id = 'lebowski-container';
         body.appendChild(container);
 
-        let client = window.paypal.client({
-            auth: {
-                test: 'LET_ME_IN'
-            }
-        });
-
-        client.LebowskiPay.render({
+        window.paypal.LebowskiPay.render({
             buttonText: 'Pay Now'
         }, '#lebowski-container');
 
