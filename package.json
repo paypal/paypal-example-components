@@ -1,6 +1,6 @@
 {
   "name": "paypal-braintree-example-component",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "Example component module for a component for unified PayPal/Braintree web sdk",
   "main": "index.js",
   "scripts": {
