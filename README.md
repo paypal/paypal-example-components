@@ -18,11 +18,10 @@ See [src/index.js](./src/index.js)
 #### Testing with different/multiple browsers
 
 ```bash
-npm run karma -- --browser=PhantomJS
 npm run karma -- --browser=Chrome
 npm run karma -- --browser=Safari
 npm run karma -- --browser=Firefox
-npm run karma -- --browser=PhantomJS,Chrome,Safari,Firefox
+npm run karma -- --browser=Chrome,Safari,Firefox
 ```
 
 #### Keeping the browser open after tests
@@ -49,39 +48,21 @@ npm run release
 
 #### `/src/component.js`
 
-This module uses `paypal-braintree-web-client` to accept configuration and merchant options,
-and expose a public interface.
+This module exports the public interface for the component.
 
 ```javascript
-// Pull in the shared web client
-import { attach } from 'paypal-braintree-web-client/src';
-
-// Attach to public api
-attach(({ clientOptions, clientConfig, serverConfig, queryOptions }) => {
-
-    // Expose public apis
-    return {
-
-        LebowskiPay: {
-            render(options) {
-                ...
-            }
-        }
-    };
-});
+export let LebowskiPay = {
+    render(options) {
+        ...
+    }
+};
 ```
 
 Then the integrating site can run:
 
 ```javascript
-var client = paypal.client({ ... });
-client.LebowskiPay.render({ ... });
+paypal.LebowskiPay.render({ ... });
 ```
-
-- `clientOptions` - Options passed by the merchant to `paypal.client()`
-- `clientConfig` - Internal client-side configuration, shared with other components to help inform rendering decisions.
-- `serverConfig` - Server-side configuration, following the structure defined in `configQuery` in `__sdk__.js`
-- `queryOptions` - Options passed in the query string for the sdk javascript file
 
 #### `/__sdk__.js`
 
@@ -91,92 +72,41 @@ client.LebowskiPay.render({ ... });
 export default {
 
     /**
-     * Define the top-level module names and their entry points.
-     * 
-     * In this example, the config has the following effects:
-     * - The script tag can pass ?modules=lebowski-pay in the script src
-     * - Everything exported by `./src/index` will be included in the
-     *   final generated script
+     * Define the lebowski-pay component
+     * Now developers can include paypal.com/sdk/js?components=lebowski-pay
      */
 
-    modules: {
-        'lebowski-pay': './src/index'
-    },
-    
-    /**
-     * Define a static namespace for feature flags.
-     * 
-     * For example:
-     * - `features` config sets `FEATURE_Y: true`
-     * - Code can now reference `if (LEBOWSKIPAY.FEATURE_Y) { ... }`
-     * 
-     * This is a *build-time* namespace and will not be available at run-time.
-     */
+    'lebowski-pay': {
 
-    staticNamespace: 'LEBOWSKIPAY',
+        /**
+         * Entry point. Everything exported from this module will be exported
+         * in the `window.paypal` namespace.
+         */
 
-    /**
-     * Define configuration required by this module
-     * 
-     * - This should be in the form of a graphql query.
-     * - The query will be merged with queries defined by other modules
-     * - The final config will be passed as `serverConfig` in `./src/index` 
-     */
+        entry: './src/index',
 
-    configQuery: `
-        configuration {
-            lebowskiPay {
-                checkoutUrl
+        /**
+         * Define a static namespace.
+         * Server config will be available under the `__lebowski_pay__.serverConfig` global
+         */
+
+        staticNamespace: '__lebowski_pay__',
+
+        /**
+         * Define configuration required by this module
+         * 
+         * - This should be in the form of a graphql query.
+         * - The query will be merged with queries defined by other modules
+         * - The final config will be passed as `__lebowski_pay__.serverConfig` in `./src/index` 
+         */
+
+        configQuery: `
+            fundingEligibility {
+                card {
+                    branded
+                }
             }
-        }
-    `,
-
-    /**
-     * Define feature flags based on date, country, partner and merchant
-     * 
-     * - These feature flags will be merged on the server and available
-     *   under `LEBOWSKIPAY`, e.g. `if (LEBOWSKIPAY.FEATURE_Y) { ... }`
-     * - Date-based feature flags will take the initial date of integration
-     *   for a given merchant. This can be overriden in the sdk url by passing
-     *   `?date=2018/04/01`.
-     * - These flags are available at *build-time* on the server-side, any any
-     *   negative conditions will be stripped out of the final bundle.
-     */
-
-    features: {
-
-        date: {
-            // Deprecate feature X from 2017/06/23 onwards
-            '2017-06-23': {
-                FEATURE_X: false
-            },
-
-            // Enable feature Y from 2018/02/09 onwards
-            '2018-02-09': {
-                FEATURE_Y: true
-            }
-        },
-
-        country: {
-            // Enable feature Z for FR
-            FR: {
-                FEATURE_Z: true
-            }
-        },
-
-        partner: {
-            // Enable feature A for partner XYZ
-            XYZ: {
-                FEATURE_A: true
-            }
-        },
-
-        merchant: {
-            // Enable feature B for merchant ABC
-            ABC: {
-                FEATURE_B: true
-            }
-        }
+        `
     }
 };
 ```
@@ -198,13 +128,19 @@ export default {
 
   ```javascript
   modules: {
-    'lebowski-pay': './src/components/lebowski-pay',
-    'walter-pay': './src/components/walter-pay',
-    'donnie-pay': './src/components/donnie-pay'
+    'lebowski-pay': {
+        entry: './src/components/lebowski-pay'
+    },
+    'walter-pay': {
+        entry: './src/components/walter-pay'
+    },
+    'donnie-pay': {
+        entry: './src/components/donnie-pay'
+    }
   },
   ```
 
-  Please bear in mind that this opens the door to any combination or permutation of these modules to be requested by the merchant -- hence the need for loose coupling. `donnie-pay` should not have a hard dependency on `lebowski-pay` being present.
+  Please bear in mind that this opens the door to any combination or permutation of these modules to be requested by the merchant -- hence the need for loose coupling. `donnie-pay` should never have a hard dependency on `lebowski-pay` being present.
 
 - **Where is all of the karma, webpack, eslint, etc. config coming from?**
 
