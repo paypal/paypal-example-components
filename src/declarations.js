@@ -1,5 +1,5 @@
 /* @flow */
 
-import type { LebowskiPayGlobalType } from './types';
+import type { ExamplePayGlobalType } from './types';
 
-declare var __lebowski_pay__: LebowskiPayGlobalType;
+declare var __example_pay__ : ExamplePayGlobalType;

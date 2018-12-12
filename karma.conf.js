@@ -1,29 +1,46 @@
 /* @flow */
+/* eslint import/no-default-export: off */
 
 import { getKarmaConfig } from 'grumbler-scripts/config/karma.conf';
 import { getWebpackConfig } from 'grumbler-scripts/config/webpack.config';
 
-import type { LebowskiPayGlobalType } from './src/types';
+import type { ExamplePayGlobalType } from './src/types';
 
-let lebowskiPayGlobal : LebowskiPayGlobalType = {
+const examplePayGlobal : ExamplePayGlobalType = {
     serverConfig: {
         assetsUrl: 'https://paypal.com/assets/'
-    },
-    featureFlags: {
-        FEATURE_A: true,
-        FEATURE_B: true,
-        FEATURE_X: true,
-        FEATURE_Y: true,
-        FEATURE_Z: true
     }
 };
 
-export default (karma : Object) =>
-    karma.set(getKarmaConfig(karma, {
+export default (karma : Object) => {
+    const karmaConfig = getKarmaConfig(karma, {
         basePath: __dirname,
         webpack:  getWebpackConfig({
             vars: {
-                __lebowski_pay__: lebowskiPayGlobal
+                __example_pay__: examplePayGlobal,
+
+                __PORT__:       8000,
+                __STAGE_HOST__: 'msmaster.qa.paypal.com',
+                __HOST__:       'test.paypal.com',
+                __HOSTNAME__:   'test.paypal.com',
+                __PATH__:       '/sdk/js',
+                __VERSION__:    '1.0.55',
+                __NAMESPACE__:  'testpaypal'
             }
         })
-    }));
+    });
+
+    karma.set({
+        ...karmaConfig,
+
+        files: [
+            {
+                pattern:  'test/paypal.js',
+                included: true,
+                served:   true
+            },
+
+            ...karmaConfig.files
+        ]
+    });
+};

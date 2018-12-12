@@ -3,44 +3,9 @@
 
 module.exports = {
 
-    'lebowski-pay': {
+    'example-pay': {
         entry: './src/component',
-
-        // Set up a namespace for any module-specific build-time flags
-        staticNamespace: '__lebowski_pay__',
-
-        // Set up a graphql config query
-        configQuery: `
-            clientConfiguration {
-                assetsUrl
-                paypalMerchantConfiguration(merchantId: $clientID) {
-                    name
-                    isPayPalBranded
-                }
-            }
-        `,
-
-        // Configure features specific to this module
-        features: {
-
-            date: {
-                // Deprecate feature X from 2017/06/23 onwards
-                '2017-06-23': {
-                    FEATURE_X: false
-                },
-
-                // Enable feature Y from 2018/02/09 onwards
-                '2018-02-09': {
-                    FEATURE_Y: true
-                }
-            },
-
-            country: {
-                // Enable feature Z for FR
-                FR: {
-                    FEATURE_Z: true
-                }
-            }
-        }
+        
+        staticNamespace: '__example_pay__'
     }
 };

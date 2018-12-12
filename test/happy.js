@@ -4,22 +4,22 @@ import '../src/index'; // eslint-disable-line import/no-unassigned-import
 
 describe('Happy cases', () => {
 
-    it('Should create an instance of the client and render LebowskiPay', () => {
+    it('Should create an instance of the client and render ExamplePay', () => {
         
-        let body = document.body;
+        const body = document.body;
         if (!body) {
             throw new Error(`Expected document.body to be present`);
         }
 
-        let container = document.createElement('div');
-        container.id = 'lebowski-container';
+        const container = document.createElement('div');
+        container.id = 'example-pay-container';
         body.appendChild(container);
 
-        window.paypal.LebowskiPay.render({
+        window.paypal.ExamplePay.render({
             buttonText: 'Pay Now'
-        }, '#lebowski-container');
+        }, '#example-pay-container');
 
-        let button = container.querySelector('button');
+        const button = container.querySelector('button');
         if (!button) {
             throw new Error(`Expected button to be rendered`);
         }
