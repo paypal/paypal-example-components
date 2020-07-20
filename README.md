@@ -1,6 +1,10 @@
 PayPal/Braintree Example Component
 ----------------------------------
 
+[![npm version](https://img.shields.io/npm/v/@paypal/example-components.svg?style=flat-square)](https://www.npmjs.com/package/@paypal/example-components) [![build status](https://img.shields.io/travis/paypal/paypal-example-components/master.svg?style=flat-square)](https://travis-ci.org/paypal/paypal-example-components)
+
+[![dependencies Status](https://david-dm.org/paypal/paypal-example-components/status.svg)](https://david-dm.org/paypal/paypal-example-components) [![devDependencies Status](https://david-dm.org/paypal/paypal-example-components/dev-status.svg)](https://david-dm.org/paypal/paypal-example-components?type=dev)
+
 Example standalone component to be included in unified PayPal/Braintree client SDK
 
 ### Quick start
