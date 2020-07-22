@@ -3,7 +3,7 @@
 import { getClientID } from '@paypal/sdk-client/src';
 
 export const ExamplePay = {
-    render(options : { buttonText : string }, container : string) {
+    render(options : {| buttonText : string |}, container : string) {
 
         if (!options.buttonText) {
             throw new Error(`Expected options.buttonText`);

@@ -5,7 +5,7 @@ import '../src/index'; // eslint-disable-line import/no-unassigned-import
 describe('Happy cases', () => {
 
     it('Should create an instance of the client and render ExamplePay', () => {
-        
+
         const body = document.body;
         if (!body) {
             throw new Error(`Expected document.body to be present`);
@@ -24,12 +24,12 @@ describe('Happy cases', () => {
             throw new Error(`Expected button to be rendered`);
         }
 
-        if (!button.innerText) {
+        if (!button.textContent) {
             throw new Error(`Expected button to have text`);
         }
 
-        if (button.innerText !== 'Pay Now') {
-            throw new Error(`Expected button text to be "Pay Now", got "${ button.innerText.toString() }"`);
+        if (button.textContent !== 'Pay Now') {
+            throw new Error(`Expected button text to be "Pay Now", got "${ button.textContent.toString() }"`);
         }
 
         body.removeChild(container);

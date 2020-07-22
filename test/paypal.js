@@ -13,4 +13,4 @@ if (body) {
     body.appendChild(script);
 }
 
-window.paypal = require('../src');
+window.paypal = require('../src'); // eslint-disable-line import/no-commonjs
