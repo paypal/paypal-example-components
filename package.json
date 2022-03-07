@@ -31,7 +31,7 @@
   "homepage": "https://github.com/paypal/paypal-braintree-example-component#readme",
   "devDependencies": {
     "flow-bin": "^0.70.0",
-    "grumbler-scripts": "^3",
+    "grumbler-scripts": "6.0.0",
     "mocha": "^4"
   },
   "dependencies": {
