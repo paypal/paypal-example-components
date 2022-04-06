@@ -4,16 +4,55 @@
   "description": "Example component module for a component for unified PayPal/Braintree web sdk",
   "main": "index.js",
   "scripts": {
-    "release": "npm run release:patch",
-    "release:patch": "./node_modules/@krakenjs/grumbler-scripts/publish.sh patch",
-    "release:minor": "./node_modules/@krakenjs/grumbler-scripts/publish.sh minor",
-    "release:major": "./node_modules/@krakenjs/grumbler-scripts/publish.sh major",
     "flow-typed": "flow-typed install",
     "flow": "flow",
     "flow:build": "flow gen-flow-files ./src/index.js --out-dir ./dist/module",
     "lint": "eslint src/ test/ *.js",
     "test": "npm run lint && npm run flow && npm run karma",
-    "karma": "cross-env NODE_ENV=test babel-node $(npm bin)/karma start"
+    "karma": "cross-env NODE_ENV=test babel-node $(npm bin)/karma start",
+    "prepare": "husky install",
+    "release": "standard-version",
+    "postrelease": "git push && git push --follow-tags && npm publish"
+  },
+  "standard-version": {
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": false
+      },
+      {
+        "type": "docs",
+        "hidden": false
+      },
+      {
+        "type": "style",
+        "hidden": false
+      },
+      {
+        "type": "refactor",
+        "hidden": false
+      },
+      {
+        "type": "perf",
+        "hidden": false
+      },
+      {
+        "type": "test",
+        "hidden": false
+      },
+      {
+        "type": "ci",
+        "hidden": true
+      }
+    ]
   },
   "files": [
     "src",
@@ -30,8 +69,11 @@
   },
   "homepage": "https://github.com/paypal/paypal-braintree-example-component#readme",
   "devDependencies": {
-    "flow-bin": "0.155.0",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@krakenjs/grumbler-scripts": "^6",
+    "flow-bin": "0.155.0",
+    "husky": "^7.0.4",
     "mocha": "^4"
   },
   "dependencies": {
