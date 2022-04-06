@@ -24,7 +24,7 @@
     "url": "git+https://github.com/paypal/paypal-braintree-example-component.git"
   },
   "author": "dbrain",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/paypal/paypal-braintree-example-component/issues"
   },
