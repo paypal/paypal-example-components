@@ -36,7 +36,7 @@ npm run karma -- --browser=Chrome --keep-open
 
 #### Releasing and Publishing
 
-- Publish your code with a patch version: 
+- Publish your code with a patch version:
 
 ```bash
 npm run release
@@ -98,10 +98,10 @@ export default {
 
         /**
          * Define configuration required by this module
-         * 
+         *
          * - This should be in the form of a graphql query.
          * - The query will be merged with queries defined by other modules
-         * - The final config will be passed as `__lebowski_pay__.serverConfig` in `./src/index` 
+         * - The final config will be passed as `__lebowski_pay__.serverConfig` in `./src/index`
          */
 
         configQuery: `
@@ -119,11 +119,11 @@ export default {
 ### FAQ
 
 - **Why is there no webpack config, dist folder, or npm build command?**
-  
+
   This module (and modules like it) are not intended to be built as standalone components. It will be pulled in and compiled/bundled on the server-side, then combined with other modules.
 
 - **When should I publish?**
-  
+
   When you publish, you're signing off on your changes being code-complete, fully tested, and ready for release. Publishing **will not immediately trigger a deploy**, but please only publish changes which are in a deployable state.
 
 - **Can I define multiple components in one repo?**
@@ -148,4 +148,4 @@ export default {
 
 - **Where is all of the karma, webpack, eslint, etc. config coming from?**
 
-  This module uses `grumbler-scripts` as a common source of configuration and defaults. Any of these can be overriden, either partially, or entirely, depending on the individual needs of the module. You'll notice `.eslintrc.js`, `karma.conf.js`, etc. are lightweight wrappers which only define module-specific overrides.
+  This module uses `@krakenjs/grumbler-scripts` as a common source of configuration and defaults. Any of these can be overriden, either partially, or entirely, depending on the individual needs of the module. You'll notice `.eslintrc.js`, `karma.conf.js`, etc. are lightweight wrappers which only define module-specific overrides.

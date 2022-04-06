@@ -1,8 +1,8 @@
 /* @flow */
 /* eslint import/no-default-export: off */
 
-import { getKarmaConfig } from 'grumbler-scripts/config/karma.conf';
-import { getWebpackConfig } from 'grumbler-scripts/config/webpack.config';
+import { getKarmaConfig } from '@krakenjs/grumbler-scripts/config/karma.conf';
+import { getWebpackConfig } from '@krakenjs/grumbler-scripts/config/webpack.config';
 
 import type { ExamplePayGlobalType } from './src/types';
 
@@ -20,6 +20,7 @@ export default (karma : Object) => {
                 __example_pay__: examplePayGlobal,
 
                 __PORT__:       8000,
+                __SDK_HOST__:   'test.paypal.com',
                 __STAGE_HOST__: 'msmaster.qa.paypal.com',
                 __HOST__:       'test.paypal.com',
                 __HOSTNAME__:   'test.paypal.com',
