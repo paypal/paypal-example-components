@@ -5,7 +5,5 @@ module.exports = {
 
     'example-pay': {
         entry: './src/component',
-        
-        staticNamespace: '__example_pay__'
     }
 };
