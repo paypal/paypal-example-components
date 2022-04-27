@@ -97,30 +97,7 @@ export default {
          * in the `window.paypal` namespace.
          */
 
-        entry: './src/index',
-
-        /**
-         * Define a static namespace.
-         * Server config will be available under the `__lebowski_pay__.serverConfig` global
-         */
-
-        staticNamespace: '__lebowski_pay__',
-
-        /**
-         * Define configuration required by this module
-         *
-         * - This should be in the form of a graphql query.
-         * - The query will be merged with queries defined by other modules
-         * - The final config will be passed as `__lebowski_pay__.serverConfig` in `./src/index`
-         */
-
-        configQuery: `
-            fundingEligibility {
-                card {
-                    branded
-                }
-            }
-        `
+        entry: './src/index'
     }
 };
 ```
