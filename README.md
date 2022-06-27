@@ -1,5 +1,4 @@
-PayPal/Braintree Example Component
-----------------------------------
+## PayPal/Braintree Example Component
 
 [![build status][build-badge]][build]
 [![code coverage][coverage-badge]][coverage]
@@ -84,24 +83,21 @@ paypal.LebowskiPay.render({ ... });
 
 ```javascript
 export default {
+  /**
+   * Define the lebowski-pay component
+   * Now developers can include paypal.com/sdk/js?components=lebowski-pay
+   */
 
+  "lebowski-pay": {
     /**
-     * Define the lebowski-pay component
-     * Now developers can include paypal.com/sdk/js?components=lebowski-pay
+     * Entry point. Everything exported from this module will be exported
+     * in the `window.paypal` namespace.
      */
 
-    'lebowski-pay': {
-
-        /**
-         * Entry point. Everything exported from this module will be exported
-         * in the `window.paypal` namespace.
-         */
-
-        entry: './src/index'
-    }
+    entry: "./src/index",
+  },
 };
 ```
-
 
 ### FAQ
 

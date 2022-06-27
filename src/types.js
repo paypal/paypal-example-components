@@ -1,13 +1,11 @@
 /* @flow */
 
 export type ExamplePayServerConfigType = {|
-    assetsUrl : string
+  assetsUrl: string,
 |};
-
 
 export type ExamplePayGlobalType = {|
-    serverConfig : ExamplePayServerConfigType
+  serverConfig: ExamplePayServerConfigType,
 |};
 
-
-declare var __example_pay__ : ExamplePayGlobalType;
+declare var __example_pay__: ExamplePayGlobalType;
