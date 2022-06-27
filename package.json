@@ -71,7 +71,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "@krakenjs/grumbler-scripts": "^6",
+    "@krakenjs/grumbler-scripts": "7.0.2",
     "flow-bin": "0.155.0",
     "husky": "^7.0.4",
     "mocha": "^4",
