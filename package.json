@@ -8,7 +8,9 @@
     "flow": "flow",
     "flow:build": "flow gen-flow-files ./src/index.js --out-dir ./dist/module",
     "lint": "eslint src/ test/ *.js",
-    "test": "npm run lint && npm run flow && npm run karma",
+    "format": "prettier --write --ignore-unknown .",
+    "format:check": "prettier --check .",
+    "test": "npm run format:check && npm run lint && npm run flow && npm run karma",
     "karma": "cross-env NODE_ENV=test babel-node $(npm bin)/karma start",
     "prepare": "husky install",
     "release": "standard-version",
@@ -71,13 +73,18 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "@krakenjs/grumbler-scripts": "^6",
+    "@krakenjs/grumbler-scripts": "^7.0.0",
     "flow-bin": "0.155.0",
     "husky": "^7.0.4",
+    "lint-staged": "^13.0.3",
     "mocha": "^4",
+    "prettier": "2.7.1",
     "standard-version": "^9.3.2"
   },
   "dependencies": {
     "@paypal/sdk-client": "^4.0.166"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
