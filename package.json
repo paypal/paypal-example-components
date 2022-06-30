@@ -71,15 +71,15 @@
   },
   "homepage": "https://github.com/paypal/paypal-braintree-example-component#readme",
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@krakenjs/grumbler-scripts": "^7.0.0",
+    "@commitlint/cli": "16.3.0",
+    "@commitlint/config-conventional": "16.2.4",
+    "@krakenjs/grumbler-scripts": "7.0.4",
     "flow-bin": "0.155.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^13.0.3",
-    "mocha": "^4",
+    "husky": "7.0.4",
+    "lint-staged": "13.0.3",
+    "mocha": "4.1.0",
     "prettier": "2.7.1",
-    "standard-version": "^9.3.2"
+    "standard-version": "9.5.0"
   },
   "dependencies": {
     "@paypal/sdk-client": "^4.0.166"
