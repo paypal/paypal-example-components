@@ -28,4 +28,4 @@ jobs:
         run: npm run test
 
       - name: ⬆️ Upload jest coverage report
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
