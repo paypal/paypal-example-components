@@ -21,7 +21,7 @@ export default (karma: Object) => {
 
         __PORT__: 8000,
         __SDK_HOST__: "test.paypal.com",
-        __STAGE_HOST__: "msmaster.qa.paypal.com",
+        __STAGE_HOST__: "sandbox.paypal.com",
         __HOST__: "test.paypal.com",
         __HOSTNAME__: "test.paypal.com",
         __PATH__: "/sdk/js",
